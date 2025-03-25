@@ -38,12 +38,12 @@ export class LinkedList {
   }
 
   contains(value) {
-    return this.list.some((l) => l.includes(value));
+    return this.list.some((l) => l.value.includes(value));
   }
 
   find(value) {
     return this.list.findIndex((l) => {
-      if (l === value) {
+      if (l.value === value) {
         return true;
       } else {
         return null;
@@ -54,7 +54,7 @@ export class LinkedList {
   toString() {
     let stringed = "";
     for (const item of this.list) {
-      stringed += `(${item}) -> `;
+      stringed += `(${item.value}) -> `;
     }
 
     stringed += "null";
