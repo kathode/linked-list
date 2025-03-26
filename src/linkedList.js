@@ -10,6 +10,7 @@ export class LinkedList {
     if (this.list.length > 0) {
       this.tail().nextNode = newNode;
     }
+
     this.list.push(newNode);
   }
 
@@ -60,5 +61,16 @@ export class LinkedList {
     stringed += "null";
 
     return stringed;
+  }
+
+  insertAt(value, index) {
+    const nextNode = this.list[index];
+    const newNode = new Node(value, nextNode);
+
+    this.list.splice(index, 0, newNode);
+
+    if (this.list.length > 1) {
+      this.list[index - 1].nextNode = newNode;
+    }
   }
 }
