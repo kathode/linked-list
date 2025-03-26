@@ -39,7 +39,7 @@ export class LinkedList {
   }
 
   contains(value) {
-    return this.list.some((l) => l.value.includes(value));
+    return this.list.some((l) => l.value === value);
   }
 
   find(value) {
