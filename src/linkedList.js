@@ -43,13 +43,13 @@ export class LinkedList {
   }
 
   find(value) {
-    return this.list.findIndex((l) => {
-      if (l.value === value) {
-        return true;
+    for (const index in this.list) {
+      if (this.list[index].value === value) {
+        return Number(index);
       } else {
         return null;
       }
-    });
+    }
   }
 
   toString() {
