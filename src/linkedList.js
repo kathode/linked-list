@@ -78,7 +78,7 @@ export class LinkedList {
       prevNode.nextNode = newNode;
       this.list.splice(index, 0, new Node(value));
     } else if (outOfRange) {
-      console.log("out of range error");
+      return "out of range";
     } else {
       prevNode.nextNode = newNode;
       this.list.splice(index, 0, newNode);
@@ -99,7 +99,7 @@ export class LinkedList {
       this.list.splice(index, 1);
       prevNode.nextNode = null;
     } else if (outOfRange) {
-      console.log("out of range error");
+      return "out of range";
     } else {
       this.list.splice(index, 1);
       prevNode.nextNode = nextNode;
