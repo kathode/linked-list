@@ -71,9 +71,7 @@ export class LinkedList {
     const isTail = this.size() === index;
     const outOfRange = index > this.size();
 
-    if (this.size() < 1) {
-      return;
-    } else if (isHead) {
+    if (isHead) {
       this.list.splice(index, 0, newNode);
     } else if (isTail) {
       this.list[index - 1].nextNode = newNode;
