@@ -55,7 +55,7 @@ export class LinkedList {
   toString() {
     let stringed = "";
     for (const item of this.list) {
-      stringed += `(${item.value}) -> `;
+      stringed += `( ${item.value} ) -> `;
     }
 
     stringed += "null";
