@@ -65,6 +65,7 @@ export class LinkedList {
 
   insertAt(value, index) {
     const nextNode = this.list[index];
+    const prevNode = this.list[index - 1];
     const newNode = new Node(value, nextNode);
 
     const isHead = index === 0;
@@ -74,13 +75,34 @@ export class LinkedList {
     if (isHead) {
       this.list.splice(index, 0, newNode);
     } else if (isTail) {
-      this.list[index - 1].nextNode = newNode;
+      prevNode.nextNode = newNode;
       this.list.splice(index, 0, new Node(value));
     } else if (outOfRange) {
       console.log("out of range error");
     } else {
-      this.list[index - 1].nextNode = newNode;
+      prevNode.nextNode = newNode;
       this.list.splice(index, 0, newNode);
+    }
+  }
+
+  removeAt(index) {
+    const nextNode = this.list[index + 1];
+    const prevNode = this.list[index - 1];
+
+    const isHead = index === 0;
+    const isTail = this.size() - 1 === index;
+    const outOfRange = index > this.size() - 1;
+
+    if (isHead) {
+      this.list.splice(index, 1);
+    } else if (isTail) {
+      this.list.splice(index, 1);
+      prevNode.nextNode = null;
+    } else if (outOfRange) {
+      console.log("out of range error");
+    } else {
+      this.list.splice(index, 1);
+      prevNode.nextNode = nextNode;
     }
   }
 }
